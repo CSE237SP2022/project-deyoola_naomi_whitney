@@ -12,10 +12,12 @@ public class CatalogItem {
 	
 	private double price;
 	private String name;
-	
-	public CatalogItem(double price, String name) {
+	private String category;
+
+	public CatalogItem(double price, String name, String category) {
 		this.price = price;
 		this.name = name;
+		this.category = category;
 	}
 	
 	/**
@@ -27,6 +29,10 @@ public class CatalogItem {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public String getCategory() {
+		return category;
 	}
 	
 	

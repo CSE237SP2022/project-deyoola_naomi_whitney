@@ -23,7 +23,7 @@ class CartTest {
 	 */
 	void testAddItem() {
 		//Step 1: setup
-		CatalogItem item = new CatalogItem(5.60, "tshirt");
+		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel");
 		
 		//Step 2: test a method
 		cartOrder.addItem(item);
@@ -40,11 +40,11 @@ class CartTest {
 	@Test
 	void testComputeSubtotalMultipleItems() {
 		//Step 1: setup
-		CatalogItem item = new CatalogItem(5.60, "tshirt");
-		CatalogItem item2 = new CatalogItem(10.50, "hat");
-		CatalogItem item3 = new CatalogItem(2.00, "pen");
-		CatalogItem item4 = new CatalogItem(7.25, "notebook");
-		CatalogItem item5 = new CatalogItem(1.00, "marker");
+		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel");
+		CatalogItem item2 = new CatalogItem(10.50, "hat", "apparel");
+		CatalogItem item3 = new CatalogItem(2.00, "pen", "supplies");
+		CatalogItem item4 = new CatalogItem(7.25, "notebook", "supplies");
+		CatalogItem item5 = new CatalogItem(1.00, "marker", "supplies");
 		cartOrder.addItem(item);
 		cartOrder.addItem(item2);
 		cartOrder.addItem(item3);
@@ -65,7 +65,7 @@ class CartTest {
 	@Test
 	void testComputeSubtotal() {
 		//Step 1: setup
-		CatalogItem item = new CatalogItem(5.60, "tshirt");
+		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel");
 		cartOrder.addItem(item);
 
 		
@@ -94,8 +94,8 @@ class CartTest {
 	@Test
 	void testComputedTax() {
 		//Step 1: setup
-		CatalogItem item = new CatalogItem(5.60, "tshirt");
-		CatalogItem item2 = new CatalogItem(10.50, "hat");
+		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel");
+		CatalogItem item2 = new CatalogItem(10.50, "hat", "apparel");
 		cartOrder.addItem(item);
 		cartOrder.addItem(item2);
 		

@@ -20,14 +20,13 @@ class CatalogTest {
 	
 	@BeforeEach
 	public void setup() {
-		item = new CatalogItem(5.60, "tshirt");
+		item = new CatalogItem(5.60, "tshirt", "apparel");
 
 	}
 
 	@Test
 	void testGetPrice() {
 		//Step 1: Setup
-		//CatalogItem item = new CatalogItem(5.60, "tshirt");
 		//Step 2: test a method
 		double price = item.getPrice();
 		//Step 3: assert
@@ -37,11 +36,19 @@ class CatalogTest {
 	@Test
 	void testGetName() {
 		//Step 1: Setup
-		//CatalogItem item = new CatalogItem(5.60, "tshirt");
 		//Step 2: test a method
 		String name = item.getName();
 		//Step 3: assert
 		assertTrue("tshirt".equals(name));
+	}
+	
+	@Test
+	void testGetCategory() {
+		//Step 1: Setup
+		//Step 2: test a method
+		String category = item.getCategory();
+		//Step 3: assert
+		assertTrue("apparel".equals(category));
 	}
 	
 
