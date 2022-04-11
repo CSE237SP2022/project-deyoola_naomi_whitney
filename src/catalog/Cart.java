@@ -12,9 +12,11 @@ import java.util.List;
 public class Cart {
 	
 	private List<CatalogItem> cartItems;
+	private double taxRate;
 	
-	public Cart() {
+	public Cart(double taxRate) {
 		this.cartItems = new LinkedList<>();
+		this.taxRate = taxRate;
 	}
 	
 	public void addItem(CatalogItem item) {
@@ -31,5 +33,9 @@ public class Cart {
 			sum += item.getPrice();
 		}
 		return sum;
+	}
+	
+	public double computedTax() {
+		return computeSubtotal() * this.taxRate;
 	}
 }

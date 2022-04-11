@@ -3,7 +3,7 @@ package catalog;
 /**
  * 
  * Constructors and getters: A bean that represents an item in the cart
- * Features needed: Description and Category
+ * Features needed: Description, Category
  * @author naomihorsford, whitney, deyoola
  *
  */

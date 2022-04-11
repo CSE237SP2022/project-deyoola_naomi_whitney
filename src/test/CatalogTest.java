@@ -2,8 +2,10 @@ package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import catalog.Cart;
 import catalog.CatalogItem;
 
 /**
@@ -12,12 +14,20 @@ import catalog.CatalogItem;
  */
 
 
+
 class CatalogTest {
+	private CatalogItem item;
+	
+	@BeforeEach
+	public void setup() {
+		item = new CatalogItem(5.60, "tshirt");
+
+	}
 
 	@Test
 	void testGetPrice() {
 		//Step 1: Setup
-		CatalogItem item = new CatalogItem(5.60, "tshirt");
+		//CatalogItem item = new CatalogItem(5.60, "tshirt");
 		//Step 2: test a method
 		double price = item.getPrice();
 		//Step 3: assert
@@ -27,7 +37,7 @@ class CatalogTest {
 	@Test
 	void testGetName() {
 		//Step 1: Setup
-		CatalogItem item = new CatalogItem(5.60, "tshirt");
+		//CatalogItem item = new CatalogItem(5.60, "tshirt");
 		//Step 2: test a method
 		String name = item.getName();
 		//Step 3: assert
