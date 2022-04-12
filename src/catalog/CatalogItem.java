@@ -40,6 +40,9 @@ public class CatalogItem {
 	public String getDescription() {
 		return description;
 	}
+	public String toString() {
+		return this.name+" "+this.price;
+	}
 	
 }
 
