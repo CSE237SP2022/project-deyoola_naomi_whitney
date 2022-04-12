@@ -13,11 +13,13 @@ public class CatalogItem {
 	private double price;
 	private String name;
 	private String category;
+	private String description;
 
-	public CatalogItem(double price, String name, String category) {
+	public CatalogItem(double price, String name, String category, String description) {
 		this.price = price;
 		this.name = name;
 		this.category = category;
+		this.description = description;
 	}
 	
 	/**
@@ -35,8 +37,9 @@ public class CatalogItem {
 		return category;
 	}
 	
-	
-	
+	public String getDescription() {
+		return description;
+	}
 	
 }
 

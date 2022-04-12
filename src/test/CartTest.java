@@ -23,7 +23,7 @@ class CartTest {
 	 */
 	void testAddItem() {
 		//Step 1: setup
-		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel");
+		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel", "green");
 		
 		//Step 2: test a method
 		cartOrder.addItem(item);
@@ -33,6 +33,22 @@ class CartTest {
 		assertEquals(1, items);
 	}
 	
+	@Test
+	/**
+	 * remove item to cart
+	 */
+	void testRemoveItem() {
+		//Step 1: setup
+		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel", "green");
+		
+		//Step 2: test a method
+		cartOrder.removeItem(item);
+		int items = cartOrder.getSize();
+		
+		//Step 3: assert
+		assertEquals(0, items);
+	}
+	
 	/**
 	 * Calculates the sub-total for multiple items in this order
 	 * @return the sum of all prices of CartItems
@@ -40,11 +56,11 @@ class CartTest {
 	@Test
 	void testComputeSubtotalMultipleItems() {
 		//Step 1: setup
-		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel");
-		CatalogItem item2 = new CatalogItem(10.50, "hat", "apparel");
-		CatalogItem item3 = new CatalogItem(2.00, "pen", "supplies");
-		CatalogItem item4 = new CatalogItem(7.25, "notebook", "supplies");
-		CatalogItem item5 = new CatalogItem(1.00, "marker", "supplies");
+		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel", "green");
+		CatalogItem item2 = new CatalogItem(10.50, "hat", "apparel", "black");
+		CatalogItem item3 = new CatalogItem(2.00, "pen", "supplies", "white");
+		CatalogItem item4 = new CatalogItem(7.25, "notebook", "supplies", "red");
+		CatalogItem item5 = new CatalogItem(1.00, "marker", "supplies", "blue");
 		cartOrder.addItem(item);
 		cartOrder.addItem(item2);
 		cartOrder.addItem(item3);
@@ -65,7 +81,7 @@ class CartTest {
 	@Test
 	void testComputeSubtotal() {
 		//Step 1: setup
-		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel");
+		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel", "green");
 		cartOrder.addItem(item);
 
 		
@@ -91,11 +107,15 @@ class CartTest {
 		assertEquals(0, subtotal, 0.05);
 	}
 	
+	/**
+	 * Calculates the tax on item(s)
+	 * @return the tax
+	 */
 	@Test
 	void testComputedTax() {
 		//Step 1: setup
-		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel");
-		CatalogItem item2 = new CatalogItem(10.50, "hat", "apparel");
+		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel", "green");
+		CatalogItem item2 = new CatalogItem(10.50, "hat", "apparel", "black");
 		cartOrder.addItem(item);
 		cartOrder.addItem(item2);
 		

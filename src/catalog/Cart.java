@@ -14,13 +14,12 @@ public class Cart {
 	private List<CatalogItem> cartItems;
 	private double taxRate;
 	
-	public Cart(double taxRate) {
-		this.cartItems = new LinkedList<>();
-		this.taxRate = taxRate;
-	}
-	
 	public void addItem(CatalogItem item) {
 		cartItems.add(item);
+	}
+	
+	public void removeItem(CatalogItem item) {
+		cartItems.remove(item);
 	}
 	
 	public int getSize() {
@@ -38,4 +37,10 @@ public class Cart {
 	public double computedTax() {
 		return computeSubtotal() * this.taxRate;
 	}
+	
+	public Cart(double taxRate) {
+		this.cartItems = new LinkedList<>();
+		this.taxRate = taxRate;
+	}
 }
+

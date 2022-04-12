@@ -5,12 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import catalog.Cart;
 import catalog.CatalogItem;
 
 /**
- * currently has...price and name
- * features needed: description, @ before 
+ * currently has price, name, category, and description
  */
 
 
@@ -20,7 +18,7 @@ class CatalogTest {
 	
 	@BeforeEach
 	public void setup() {
-		item = new CatalogItem(5.60, "tshirt", "apparel");
+		item = new CatalogItem(5.60, "tshirt", "apparel", "green");
 
 	}
 
@@ -49,6 +47,15 @@ class CatalogTest {
 		String category = item.getCategory();
 		//Step 3: assert
 		assertTrue("apparel".equals(category));
+	}
+	
+	@Test
+	void testGetDescription() {
+		//Step 1: Setup
+		//Step 2: test a method
+		String description = item.getDescription();
+		//Step 3: assert
+		assertTrue("green".equals(description));
 	}
 	
 
