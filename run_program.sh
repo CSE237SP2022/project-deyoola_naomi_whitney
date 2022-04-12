@@ -5,4 +5,4 @@ if [ ! -d "bin" ]; then
 	chmod 777 bin
 fi
 javac -d bin src/catalog/*.java
-java -cp bin catalog.CatalogItem
+java -cp bin catalog.Cart
