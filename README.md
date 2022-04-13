@@ -7,7 +7,7 @@ We completed the basic information necessary for our application to function. Th
 We intend on having items in alphabetical order and categorizing items.
 
 # Is there anything that you implemented but doesn't currently work?
-No
+Our script is not full implemented into the rest of our java since it took most of our time properly ensuring we got the basics to our best ablilities.
 
 # What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
 The command needed to compile and run our code from the command: ./run_program.sh 
