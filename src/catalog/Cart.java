@@ -38,9 +38,9 @@ public class Cart {
 	System.out.println("To proceed enter 1.");
 	System.out.println("If you wish to quit enter 0.");
 
-	Scanner q = new Scanner(System.in);
+	Scanner qScan = new Scanner(System.in);
        
-		switch (q.nextInt()){
+		switch (qScan.nextInt()){
 		    case 0:
 		    System.out.println ("Goodbye.");
 		    break;
@@ -57,10 +57,10 @@ public class Cart {
     }
  
     public Cart() {
-	Scanner in = new Scanner(System.in);
+	Scanner inScan = new Scanner(System.in);
         display_options();
   
-		switch (in.nextInt()) {
+		switch (inScan.nextInt()) {
 		    case 1:
 		    System.out.println ( "You picked tshirt 1" );
 		    question();
