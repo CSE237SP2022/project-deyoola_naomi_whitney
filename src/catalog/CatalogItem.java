@@ -1,5 +1,9 @@
 package catalog;
 
+import java.io.IOException;
+import java.util.Scanner;
+
+
 /**
  * 
  * Constructors and getters: A bean that represents an item in the cart
@@ -15,17 +19,21 @@ public class CatalogItem {
 	private String category;
 	private String description;
 
+
+	
 	public CatalogItem(double price, String name, String category, String description) {
 		this.price = price;
 		this.name = name;
 		this.category = category;
 		this.description = description;
 	}
+
 	
 	/**
 	 * getters
+	 * @param selection 
 	 */
-	public double getPrice() {
+	public  double getPrice() {
 		return price;
 	}
 	

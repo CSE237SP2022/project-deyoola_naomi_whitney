@@ -1,6 +1,7 @@
 package catalog;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,14 +17,76 @@ public class Cart {
 	private List<CatalogItem> cartItems;
 	private double taxRate;
 	
-	public static void main(String[] args) throws IOException {
-	  Scanner fileIn = new Scanner(System.in);
-	  System.out.println("Please enter item: ");
-	  int selection = fileIn.nextInt();
-	  System.out.println(selection);
-	        
-	}
+	//public static void main(String[] args) throws IOException {
+		//Cart cartOrder = new Cart();
+        //Student currentStudent = registration.intro();
+        //registration.processChoice(currentStudent, System.in);
+		
+        //Scanner fileIn = new Scanner(System.in);
+		//System.out.println("Please enter item: ");
+		//String selection = fileIn.nextLine();
+		//System.out.println(selection);
+		        
+	//}
+    public void display_options() {
+	System.out.println("1) tshirt 1\n2) hat 2\n3) pen 3");
+	System.out.print("Selection: ");
+    }
+    
+	public void question(){
+	System.out.println("Would you like to proceed or quit?");
+	System.out.println("To proceed enter 1.");
+	System.out.println("If you wish to quit enter 0.");
+
+	Scanner q = new Scanner(System.in);
+       
+		switch (q.nextInt()){
+		    case 0:
+		    System.out.println ("Goodbye.");
+		    break;
+	  
+		    case 1:
+		    System.out.println ("Please continue.");
+		    new Cart();
+		    break;
 	
+		    default:
+		    System.err.println ( "Sorry! Unrecognized option" );
+		    break;
+		}
+    }
+ 
+    public Cart() {
+	Scanner in = new Scanner(System.in);
+        display_options();
+  
+		switch (in.nextInt()) {
+		    case 1:
+		    System.out.println ( "You picked tshirt 1" );
+		    question();
+		    break;
+	  
+		    case 2:
+		    System.out.println ( "You picked hat 2" );
+		    question();
+		    break;
+	  
+		    case 3:
+		    System.out.println ( "You picked pen 3" );
+		    question();
+		    break;
+	
+		    default:
+		    System.err.println ( "Unrecognized option" );
+		    break;
+		}
+    }
+ 
+    public static void main (String[]args) {
+	new Cart();
+    }
+	
+
 	public void addItem(CatalogItem item) {
 		cartItems.add(item);
 	}

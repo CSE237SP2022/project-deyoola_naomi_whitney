@@ -5,10 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import catalog.Cart;
 import catalog.CatalogItem;
 
 /**
- * currently has price, name, category, and description
+ * currently has...price, name, category, and description
  */
 
 
