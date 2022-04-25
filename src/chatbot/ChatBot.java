@@ -23,6 +23,17 @@ public class ChatBot{
         ConditionalState state = analyzer.fetchConditionalState(beginningCondition);
         return replaceMatches(state.fetchMessage()).trim();
     }
+    // replace given text with variables in the regex dictionary
+    public String replaceMatches(String text){
+        
+        // replace variables within dictionary in the text
+        for (Map.Entry<String, String> entry : regexDictionary.entrySet()) {
+            text = text.replaceAll("\\["+entry.getKey() + "\\]", entry.getValue());
+        }
+
+        // remove empty variables tags
+        return Regex.clear(text);
+    }
 
 
 	
