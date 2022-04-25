@@ -144,7 +144,7 @@ public class InformationAnalyzation{
                     word = word.trim();
                     
                     // construct a new keyword
-                    Keyword keyword = new Keyword(word, target, className, arg, variable, score, learn );
+                    Keyword keyword = new Keyword(word, target, className, arg, variable, score, learnWord );
 
                     // add the keyword to keywords array list
                     keywords.add(keyword);

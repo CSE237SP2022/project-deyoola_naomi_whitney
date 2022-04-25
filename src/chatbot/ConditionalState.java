@@ -31,7 +31,8 @@ public class ConditionalState{
     public void establishRegex(String argument){
         this.argument = argument;
     }
-    // fetch state keywords
+    
+    // fetch conditional state keywords
     public ArrayList getKeywords() {
         return keywords;
     }
