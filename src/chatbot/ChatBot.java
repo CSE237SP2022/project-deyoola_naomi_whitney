@@ -13,15 +13,17 @@ public class ChatBot{
 	
 	InformationAnalyzation analyzer;
 	
-	public Bot(String beginningCondition, InformationAnalyzation analyzer) {
+	public ChatBot(String beginningCondition, InformationAnalyzation analyzer) {
 		regexDictionary = new HashMap<String,String>();
         this.beginningCondition = beginningCondition;
         this.analyzer = analyzer;
 	}
 	 // Fetch present state message
     public String fetchMessage() {
-        CondidtionalState state = analyzer.getState(beginningCondition);
+        ConditionalState state = analyzer.fetchConditionalState(beginningCondition);
         return replaceMatches(state.fetchMessage()).trim();
     }
+
+
 	
 }

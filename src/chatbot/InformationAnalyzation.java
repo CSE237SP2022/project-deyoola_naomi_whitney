@@ -133,7 +133,7 @@ public class InformationAnalyzation{
                     
                 }
 
-                String learn = keyElement.getAttribute("learn");
+                String learnWord = keyElement.getAttribute("learnWord");
                 // split keyword by comma
                 String[] words = wordTag.split(",");
 
