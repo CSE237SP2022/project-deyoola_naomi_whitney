@@ -23,6 +23,17 @@ public class ChatBot{
         ConditionalState state = analyzer.fetchConditionalState(beginningCondition);
         return replaceMatches(state.fetchMessage()).trim();
     }
+    // send user message to the chatbot and get the response
+    public String send(String message) {
+
+        String response = "";
+        ConditionalState state = analyzer.getState(beginningCondition);
+
+
+        // end of the tree
+        if (state.getKeywords().isEmpty()) {
+            this.beginningCondition = "1";
+        }
     // replace given text with variables in the regex dictionary
     public String replaceMatches(String text){
         
