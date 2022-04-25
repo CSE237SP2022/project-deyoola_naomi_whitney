@@ -16,7 +16,7 @@ class CartTest {
 		cartOrder = new Cart(0.04); //The state sales tax rate is 4.225%
 
 	}
-	
+
 	@Test
 	/**
 	 * Adds item to cart
@@ -38,14 +38,11 @@ class CartTest {
 	 * remove item to cart
 	 */
 	void testRemoveItem() {
-		//Step 1: setup
 		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel", "green");
-		
-		//Step 2: test a method
+
 		cartOrder.removeItem(item);
 		int items = cartOrder.getSize();
-		
-		//Step 3: assert
+
 		assertEquals(0, items);
 	}
 	
@@ -55,7 +52,6 @@ class CartTest {
 	 */
 	@Test
 	void testComputeSubtotalMultipleItems() {
-		//Step 1: setup
 		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel", "green");
 		CatalogItem item2 = new CatalogItem(10.50, "hat", "apparel", "black");
 		CatalogItem item3 = new CatalogItem(2.00, "pen", "supplies", "white");
@@ -67,10 +63,8 @@ class CartTest {
 		cartOrder.addItem(item4);
 		cartOrder.addItem(item5);
 		
-		//Step 2: test a method
 		double subtotal = cartOrder.computeSubtotal();
-		
-		//Step 3: assert
+
 		assertEquals(26.35, subtotal, 0.05);
 	}
 	
@@ -80,15 +74,11 @@ class CartTest {
 	 */
 	@Test
 	void testComputeSubtotal() {
-		//Step 1: setup
 		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel", "green");
 		cartOrder.addItem(item);
 
-		
-		//Step 2: test a method
 		double subtotal = cartOrder.computeSubtotal();
-		
-		//Step 3: assert
+
 		assertEquals(5.60, subtotal, 0.05);
 	}
 	
@@ -98,12 +88,9 @@ class CartTest {
 	 */
 	@Test
 	void testComputeSubtotalNoItems() {
-		//Step 1: setup
 		
-		//Step 2: test a method
 		double subtotal = cartOrder.computeSubtotal();
-		
-		//Step 3: assert
+
 		assertEquals(0, subtotal, 0.05);
 	}
 	
@@ -113,27 +100,20 @@ class CartTest {
 	 */
 	@Test
 	void testComputedTax() {
-		//Step 1: setup
 		CatalogItem item = new CatalogItem(5.60, "tshirt", "apparel", "green");
 		CatalogItem item2 = new CatalogItem(10.50, "hat", "apparel", "black");
 		cartOrder.addItem(item);
 		cartOrder.addItem(item2);
 		
-		//Step 2: test a method
 		double computedTax = cartOrder.computedTax();
 		
-		//Step 3: assert
 		assertEquals(0.64, computedTax, 0.1);
 	}
 
 	@Test
 	void testComputeTaxForEmptyOrder() {
-		//Step 1: setup
-
-		//Step 2: test a method
 		double computedTax = cartOrder.computedTax();
-		
-		//Step 3: assert
+
 		assertEquals(0, computedTax, 0.05);
 	}
 	
