@@ -1,8 +1,5 @@
 package catalog;
 
-import java.io.IOException;
-import java.util.Scanner;
-
 
 /**
  * 
@@ -18,8 +15,6 @@ public class CatalogItem {
 	private String name;
 	private String category;
 	private String description;
-
-
 	
 	public CatalogItem(double price, String name, String category, String description) {
 		this.price = price;
@@ -28,11 +23,10 @@ public class CatalogItem {
 		this.description = description;
 	}
 
-	
 	/**
 	 * getters
 	 * @param selection 
-	 */
+	*/
 	public  double getPrice() {
 		return price;
 	}
@@ -48,8 +42,9 @@ public class CatalogItem {
 	public String getDescription() {
 		return description;
 	}
+	
 	public String toString() {
-		return this.name+" "+this.price;
+		return this.name + " " + this.price;
 	}
 	
 }
