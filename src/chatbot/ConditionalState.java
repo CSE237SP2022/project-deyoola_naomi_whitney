@@ -33,7 +33,7 @@ public class ConditionalState{
     }
     
     // fetch conditional state keywords
-    public ArrayList getKeywords() {
+    public ArrayList fetchKeywords() {
         return keywords;
     }
 	

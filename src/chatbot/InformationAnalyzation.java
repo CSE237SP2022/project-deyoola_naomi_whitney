@@ -62,7 +62,7 @@ public class InformationAnalyzation{
                 String id = keyElement.getAttribute("id");
 
                 // get all state messages
-                ArrayList messages = new ArrayList<>();
+                ArrayList messages = new ArrayList();
                 NodeList messagesNodeList = keyElement.getElementsByTagName("message");
 
                 // if messages node is not null and has children
@@ -93,7 +93,7 @@ public class InformationAnalyzation{
         }
     }
 
-    // get state object by id
+
     public ConditionalState fetchConditionalState(String id) {
         return states.get(id);
     }
@@ -102,16 +102,16 @@ public class InformationAnalyzation{
         states.put(state.getId(), state);
         stateCounter++;
     }
-    // get all keywords in an State tag
+
     public ArrayList fetchKeywords(Element element) {
 
         // build keywords ArrayList
         ArrayList keywords = new ArrayList<>();
 
-        // get all nodes by keyword tag name
+       
         NodeList nodelist = element.getElementsByTagName("keyword");
 
-        // if the tag is not null and has children
+       
         if (nodelist != null && nodelist.getLength() > 0) {
 
             // loop through all the children
@@ -120,7 +120,7 @@ public class InformationAnalyzation{
                 //get the keyword element
                 Element keyElement = (Element) nodelist.item(i);
 
-                // find the keyword target, classname and argument attributes
+               
                 String wordTag = keyElement.getFirstChild().getNodeValue();
                 String target = keyElement.getAttribute("target");
                 String className = keyElement.getAttribute("className");
@@ -134,34 +134,34 @@ public class InformationAnalyzation{
                 }
 
                 String learnWord = keyElement.getAttribute("learnWord");
-                // split keyword by comma
+               
                 String[] words = wordTag.split(",");
 
-                // loop through all words
+                
                 for (String word : words) {
 
-                    // trim the word to remove spaces
+       
                     word = word.trim();
                     
-                    // construct a new keyword
+                
                     Keyword keyword = new Keyword(word, target, className, arg, variable, score, learnWord );
 
-                    // add the keyword to keywords array list
+                   
                     keywords.add(keyword);
                 }
             }
         }
 
-        // return all the keywords in the given node
+   
         return keywords;
     }
-    // returns one of the invalid messages and move the index to the next message
+ 
     public String fetchInvalidAnswer() {
 
         // get current answer
         String answer = invalidMessages.get(invalidMessageIndex);
 
-        // increase the index, if it is end of messages, reset the index to 0
+        
         invalidMessageIndex++;
         if (invalidMessageIndex >= invalidMessages.size()) {
             invalidMessageIndex = 0;
@@ -172,25 +172,23 @@ public class InformationAnalyzation{
 
     private void loadArrangement() {
 
-        // get document element
+       
         Element docElement = dom.getDocumentElement();
 
-        // get all node names for invalid messages
+        
         NodeList node = docElement.getElementsByTagName("InvalidMessages");
 
-        // get all message nodes inside invalid messages node
+        
         NodeList nodelist = ((Element) node.item(0)).getElementsByTagName("message");
 
         // if node is not null and has children
         if (nodelist != null && nodelist.getLength() > 0) {
 
-            // loop through all children
             for (int i = 0; i < nodelist.getLength(); i++) {
 
-                // fetch message node
+              
                 Element keyElement = (Element) nodelist.item(i);
 
-                // fetch message and add it to invalid messages array
                 String message = keyElement.getFirstChild().getNodeValue();
                 invalidMessages.add(message);
             }
