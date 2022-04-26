@@ -1,0 +1,1 @@
+java -cp project-deyoola_naomi_whitney.jar chatbot.Main	
