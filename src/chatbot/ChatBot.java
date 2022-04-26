@@ -30,11 +30,11 @@ public class ChatBot{
         ConditionalState state = analyzer.fetchConditionalState(beginningCondition);
 
 
-        // end of the tree
+       
         if (state.fetchKeywords().isEmpty()) {
             this.beginningCondition = "1";
         }
-     // match the keyword with given message
+   
         Keyword match = parse(message, state.fetchKeywords());
 
         if (match == null) {
@@ -45,7 +45,7 @@ public class ChatBot{
           
             if (match.className.length() > 0) {
 
-                // check for Weather dynamic response
+                
                 if (match.className.equals("Sales")) {
                     Sales promocode = new Sales();
                     response = promocode.getResponse(match.arg);
@@ -53,7 +53,7 @@ public class ChatBot{
                 }
             }else {
 
-                // get the new state and return the new message
+               
                 if (response.length() == 0) {
 
                     this.beginningCondition = match.target;
@@ -77,16 +77,16 @@ public class ChatBot{
 
         for (int i = 0; i < keylist.size(); i++) {
 
-            // get number of matches of the keyword with given text
+      
             int matches = fetchMatches(text, keylist.get(i));
 
-            // if match is better than best match, replace it
+           
             if (matches > -1 && matches > bestMatch) {
                 match = keylist.get(i);
                 bestMatch = matches;
             }
         }
-        // add best answers regex variable value into the dictionary for future reference
+       
         if (match != null){
             if(match.learnWord.length() > 0 ){
 
@@ -94,13 +94,13 @@ public class ChatBot{
                 String result =  match.variableValue;
 
 
-                // create a new state for new trained data
+                
                  ArrayList<String> messages = new ArrayList<String>();
                 messages.add(result);
                 ConditionalState myState = new ConditionalState(String.valueOf(analyzer.stateCounter),messages,new ArrayList());
                 analyzer.addConditionalState(myState);
 
-                // add the new trained keyword
+               
                 Keyword keyword = new Keyword(subject, myState.getId(), "", "", "", 1, "" );
                 ConditionalState state = analyzer.fetchConditionalState("1");
                 ArrayList<Keyword> keywords = state.fetchKeywords();
@@ -114,7 +114,7 @@ public class ChatBot{
         }
         return match;
     }
-    // get number of matches of the given keywords in the given list
+   
     private int fetchMatches(String text, Keyword keyword) {
 
         // no match by default
@@ -135,7 +135,7 @@ public class ChatBot{
         String[] words = keyword.keyword.split(" ");
 
 
-        // loop through list of the keywords
+       
         for (String word : words) {
 
             
@@ -150,7 +150,6 @@ public class ChatBot{
     }
     public String replaceMatches(String text){
         
-        // replace variables within dictionary in the text
         for (Map.Entry<String, String> entry : regexDictionary.entrySet()) {
             text = text.replaceAll("\\["+entry.getKey() + "\\]", entry.getValue());
         }

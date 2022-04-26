@@ -11,7 +11,7 @@ public class Keyword {
     public String learnWord = "";
     public int score = 0;
 
-    // default constructor, constructs a keyword object
+   
     public Keyword(String keyword, String target, String className, String arg, String variable, int score, String learnWord) {
         this.keyword = keyword;
         this.target = target;

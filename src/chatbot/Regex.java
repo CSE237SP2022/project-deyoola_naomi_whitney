@@ -17,7 +17,6 @@ public class Regex {
     public static String clear(String text){
         Pattern pattern = Pattern.compile("\\[.*\\]");
 
-        // Replace all occurrences of pattern in input
         Matcher matcher = pattern.matcher(text);
         return matcher.replaceAll("");
     }

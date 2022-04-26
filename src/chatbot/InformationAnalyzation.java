@@ -18,7 +18,7 @@ public class InformationAnalyzation{
     private int invalidMessageIndex = 0;
     public  int stateCounter = 1000;
     
-    // standard constructor
+  
     public InformationAnalyzation() {
     	// Load the XML file and parse it
     	DocumentBuilderFactory botXMLParse = DocumentBuilderFactory.newInstance();
@@ -28,7 +28,7 @@ public class InformationAnalyzation{
     		 DocumentBuilder docs = botXMLParse.newDocumentBuilder();
     		//parse using builder to get DOM representation of the XML file
     		 dom = docs.parse("data.xml");
-    		// Load configuration and states from the XML file
+    		// Load arrangement and states from the XML file
              loadArrangement();
              loadConditionalStates();
         } catch (ParserConfigurationException pce) {
@@ -43,51 +43,50 @@ public class InformationAnalyzation{
     }
     private void loadConditionalStates() {
 
-        // fetch document element object
+       
         Element docElement = dom.getDocumentElement();
 
-        // fetch all State node names
+        
         NodeList nodelist = docElement.getElementsByTagName("ConditionalState");
 
-        // if node is not null and has children
+        
         if (nodelist != null && nodelist.getLength() > 0) {
 
-            // loop through all children
+           
             for (int i = 0; i < nodelist.getLength(); i++) {
 
-                // fetch state element
+               
                 Element keyElement = (Element) nodelist.item(i);
 
-                // get state id
+                
                 String id = keyElement.getAttribute("id");
 
-                // get all state messages
                 ArrayList messages = new ArrayList();
                 NodeList messagesNodeList = keyElement.getElementsByTagName("message");
 
                 // if messages node is not null and has children
                 if (messagesNodeList != null && messagesNodeList.getLength() > 0) {
 
-                    // loop through all children
+           
                     for (int j = 0; j < messagesNodeList.getLength(); j++) {
 
-                        // get current message element
+                       
                         Element elementMessage = (Element) messagesNodeList.item(j);
 
-                        // append message node value to the messages list
+                        
                         messages.add(elementMessage.getFirstChild().getNodeValue());
                     }
                 }
 
-                // get keywords in the current state
+               
                 ArrayList keywords = fetchKeywords(keyElement);
 
-                // construct a new State object
+               
                 ConditionalState state = new ConditionalState(id, messages, keywords);
 
                 stateCounter ++;
 
-                // add the state to the states HashMap
+                
                 states.put(id, state);
             }
         }
@@ -105,7 +104,7 @@ public class InformationAnalyzation{
 
     public ArrayList fetchKeywords(Element element) {
 
-        // build keywords ArrayList
+       
         ArrayList keywords = new ArrayList<>();
 
        
@@ -114,10 +113,10 @@ public class InformationAnalyzation{
        
         if (nodelist != null && nodelist.getLength() > 0) {
 
-            // loop through all the children
+            
             for (int i = 0; i < nodelist.getLength(); i++) {
 
-                //get the keyword element
+               
                 Element keyElement = (Element) nodelist.item(i);
 
                
@@ -158,7 +157,7 @@ public class InformationAnalyzation{
  
     public String fetchInvalidAnswer() {
 
-        // get current answer
+        
         String answer = invalidMessages.get(invalidMessageIndex);
 
         
@@ -181,7 +180,7 @@ public class InformationAnalyzation{
         
         NodeList nodelist = ((Element) node.item(0)).getElementsByTagName("message");
 
-        // if node is not null and has children
+       
         if (nodelist != null && nodelist.getLength() > 0) {
 
             for (int i = 0; i < nodelist.getLength(); i++) {
