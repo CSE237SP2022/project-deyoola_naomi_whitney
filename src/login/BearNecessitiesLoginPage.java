@@ -81,7 +81,7 @@ class BearNecessitiesLoginPage
       try  
       {  
           CreateLoginPage form = new CreateLoginPage();  
-          form.setSize(400,400);   
+          form.setSize(100,100);   
           form.setVisible(true);    
       }  
       catch(Exception e)  
