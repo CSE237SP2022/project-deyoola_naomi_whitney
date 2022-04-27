@@ -22,5 +22,6 @@
 	<classpathentry kind="lib" path="/Users/whitneyomoruyi/Downloads/swing-layout-1.0.3.jar"/>
 	<classpathentry kind="lib" path="/Users/whitneyomoruyi/Downloads/swing-worker-1.1.jar"/>
 	<classpathentry kind="lib" path="/Users/whitneyomoruyi/Downloads/appframework-1.0.3.jar"/>
+	<classpathentry kind="lib" path="/Users/whitneyomoruyi/Downloads/BearBot.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
